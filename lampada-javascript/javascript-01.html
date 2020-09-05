@@ -25,9 +25,8 @@
 
                 if (!quebrada) {
                     document.getElementById("luz").src = arquivo;
-                    if (tipo == 3) {
-                        quebrada = true;
-                    }
+                    
+                    quebrada = tipo == "quebrada";
                 }
             }
         </script>
