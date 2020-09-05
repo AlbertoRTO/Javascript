@@ -20,11 +20,13 @@
                 'quebrada': "_imagens/lampada-quebrada.jpg"
             };
 
+            const lightElement = document.querySelector('#luz');
+
             function mudaLampada(tipo) {
                 const arquivo = lightState[tipo];
 
                 if (!quebrada) {
-                    document.getElementById("luz").src = arquivo;
+                    lightElement.src = arquivo;
                     
                     quebrada = tipo == "quebrada";
                 }
