@@ -1,40 +1,36 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="utf-8" />
+        <title>Page Title</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+    </head>
 
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Page Title</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-    <script src="main.js"></script>
-    <script>
-        var quebrada = false;
+    <body>
+        <h1>Acenda a lâmpada</h1>
+        <img src="_imagens/lampada-apagada.jpg" id="luz" onmousemove="mudaLampada('acesa')" onmouseout="mudaLampada('apagada')" onclick="mudaLampada('quebrada')" />
 
-        function mudaLampada(tipo) {
-            if (tipo == 1) {
-                arquivo = "_imagens/lampada-acesa.jpg";
-            }
-            if (tipo == 2) {
-                arquivo = "_imagens/lampada-apagada.jpg";
-            }
-            if (tipo == 3) {
-                arquivo = "_imagens/lampada-quebrada.jpg";
+        <script type="text/javascript">
+            var quebrada = false;
 
-            }
-            if (!quebrada) {
-                document.getElementById("luz").src = arquivo;
-                if (tipo == 3) {
-                    quebrada = true;
+            const lightState = {
+                'acesa': "_imagens/lampada-acesa.jpg",
+                'apagada': "_imagens/lampada-apagada.jpg",
+                'quebrada': "_imagens/lampada-quebrada.jpg"
+            };
+
+            const lightElement = document.querySelector('#luz');
+
+            function mudaLampada(tipo) {
+                const arquivo = lightState[tipo];
+
+                if (!quebrada) {
+                    lightElement.src = arquivo;
+                    
+                    quebrada = tipo == "quebrada";
                 }
             }
-        }
-    </script>
-</head>
-
-<body>
-    <h1>Acenda a lâmpada</h1>
-    <img src="_imagens/lampada-apagada.jpg" id="luz" onmousemove="mudaLampada(1)" onmouseout="mudaLampada(2)" onclick="mudaLampada(3)" />
-</body>
-
+        </script>
+    </body>
 </html>
